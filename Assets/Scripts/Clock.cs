@@ -5,7 +5,8 @@ using System;
 
 public class Clock : MonoBehaviour
 {
-    [SerializeField] private int addhour;
+    // update feature
+    [SerializeField] private int addHour;
 
     const float degreesPerHour = 30f;
     const float degreesPerMinute = 6f;
@@ -32,7 +33,7 @@ public class Clock : MonoBehaviour
     {
         if (smooth)
         {
-            UpdateContinuous();
+            UpdateContinuousSmooth();
         }
         else
         {
@@ -40,7 +41,7 @@ public class Clock : MonoBehaviour
         }
     }
 
-    void UpdateContinuous()
+    void UpdateContinuousSmooth()
     {
         TimeSpan time = DateTime.Now.TimeOfDay;
 
@@ -63,4 +64,5 @@ public class Clock : MonoBehaviour
 
         secondsTransform.localRotation = Quaternion.Euler(0f, setTime.Second * degreesPerSecond, 0f);
     }
+
 }
