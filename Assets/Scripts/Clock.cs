@@ -5,7 +5,6 @@ using System;
 
 public class Clock : MonoBehaviour
 {
-    // update feature
     [SerializeField] private int addHour;
 
     const float degreesPerHour = 30f;
@@ -19,7 +18,7 @@ public class Clock : MonoBehaviour
     private void Awake()
     {
         DateTime time = DateTime.Now;
-        TimeSpan timechange = new System.TimeSpan(addhour, 0, 0);
+        TimeSpan timechange = new System.TimeSpan(addHour, 0, 0);
         DateTime setTime = time.Add(timechange);
 
         hoursTransform.localRotation = Quaternion.Euler(0f, setTime.Hour * degreesPerHour, 0f);
@@ -55,7 +54,7 @@ public class Clock : MonoBehaviour
     void UpdateDiscription()
     {
         DateTime time = DateTime.Now;
-        TimeSpan timechange = new System.TimeSpan(addhour, 0, 0);
+        TimeSpan timechange = new System.TimeSpan(addHour, 0, 0);
         DateTime setTime = time.Add(timechange);
 
         hoursTransform.localRotation = Quaternion.Euler(0f, setTime.Hour * degreesPerHour, 0f);
